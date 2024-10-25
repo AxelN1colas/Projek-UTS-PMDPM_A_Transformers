@@ -17,7 +17,9 @@ with st.sidebar:
 
 # Classification section
 if selected == 'Klasifikasi':
-    model_path = Path('C:/Users/ACER/Downloads/UTS MESIN/BestModel_GBC_SVM_Transformers.pkl')
+    model_path = r'BestModel_GBC_SVM_Transformers.pkl'
+    with open(model_path, 'rb') as file:
+        full_model = pickle.load(file)
     st.title('Category Classification')
 
     # Input fields for features
@@ -79,7 +81,7 @@ if selected == 'Klasifikasi':
         st.write(f"Predicted Category: {label}")  
 
 if selected == 'Regresi':
-    model_path = "C:/Users/ACER/Downloads/UTS MESIN/BestModel_REG_LassoRegression_Transformers.pkl"
+    model_path = r'BestModel_REG_LassoRegression_Transformers.pkl'
     with open(model_path, 'rb') as file:
         full_model = pickle.load(file)
     st.title('Price Prediction using Ridge Regression')
